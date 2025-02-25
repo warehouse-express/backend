@@ -36,4 +36,5 @@ build/
 
 ### Environment variables ###
 .env
-EOF
+EOF.DS_Store
+.DS_Store?
