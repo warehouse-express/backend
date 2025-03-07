@@ -30,10 +30,10 @@ public class Product extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    /* 
+    /*
     Cannot be null
     Must be zero or greater
-    Uses BigDecimal for precise monetary calculations   
+    Uses BigDecimal for precise monetary calculations
     */
     @NotNull
     @Min(0)
@@ -50,7 +50,7 @@ public class Product extends BaseEntity {
     @Column
     private String category;
 
-    /* 
+    /*
     Many products can belong to one seller
     Creates a "seller_id" foreign key column
     Makes the seller association required (not nullable)
@@ -67,7 +67,7 @@ public class Product extends BaseEntity {
     @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    /* 
+    /*
     Uses the Status enum defined in this class
     Stores the enum values as strings in the database
     Sets a default value of ACTIVE

@@ -1,10 +1,47 @@
+### Java ###
+# Compiled class files
+*.class
 
-cat > .gitignore << 'EOF'
-HELP.md
+# Log files
+*.log
+logs/
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+### Maven ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+### Spring Boot ###
+**/src/main/**/application-local.properties
+**/src/main/**/application-dev-local.properties
 
 ### STS ###
 .apt_generated
@@ -20,6 +57,9 @@ target/
 *.iws
 *.iml
 *.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -33,8 +73,24 @@ build/
 
 ### VS Code ###
 .vscode/
+*.code-workspace
+
+### System Files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 ### Environment variables ###
 .env
-EOF.DS_Store
-.DS_Store?
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### Secrets ###
+**/src/main/resources/keystore.p12
+**/src/main/resources/jwt.key
