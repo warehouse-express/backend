@@ -63,8 +63,9 @@ public class Product extends BaseEntity {
     One product can be in many order items
     The relationship is mapped by the "product" field in the OrderItem class
     Initializes the collection as an empty ArrayList
+    Deleting a product deletes all OrderItems that include the product
      */
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     /*
