@@ -26,7 +26,6 @@ public class SecurityConfig {
                                 .anyRequest().authenticated()
                 );
 
-        // Allow frames for H2 console
         http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
