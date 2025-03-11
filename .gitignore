@@ -28,6 +28,7 @@ replay_pid*
 ### Maven ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
 !**/src/main/**/target/
 !**/src/test/**/target/
 pom.xml.tag
@@ -38,10 +39,6 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-
-### Spring Boot ###
-**/src/main/**/application-local.properties
-**/src/main/**/application-dev-local.properties
 
 ### STS ###
 .apt_generated
@@ -94,3 +91,7 @@ Thumbs.db
 ### Secrets ###
 **/src/main/resources/keystore.p12
 **/src/main/resources/jwt.key
+
+# Keep local configuration templates and recommend copying them
+# application-local.properties should NOT be excluded so team members can build
+# !**/src/main/resources/application-local.properties.example
