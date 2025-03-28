@@ -1,6 +1,7 @@
 package com.inventory.controller;
 
 import com.inventory.controller.dto.SellerDto;
+import com.inventory.controller.dto.response.SellerResponseDto;
 import com.inventory.model.entity.Seller;
 import com.inventory.service.SellerService;
 import jakarta.validation.Valid;
@@ -15,22 +16,29 @@ import java.util.List;
 @RequestMapping("/api/sellers")
 @RequiredArgsConstructor
 public class SellerController {
-    
+
     private final SellerService sellerService;
-    
+
     @GetMapping
-    public List<Seller> getAllSellers() {
-        return sellerService.getAllSellers();
+    public List<SellerResponseDto> getAllSellers() {
+        List<Seller> sellers = sellerService.getAllSellers();
+        return SellerResponseDto.fromEntities(sellers);
     }
-    
+
     @GetMapping("/{id}")
-    public ResponseEntity<Seller> getSellerById(@PathVariable Long id) {
+    public ResponseEntity<SellerResponseDto> getSellerById(@PathVariable Long id) {
         Seller seller = sellerService.getSellerById(id);
-        return ResponseEntity.ok(seller);
+        return ResponseEntity.ok(SellerResponseDto.fromEntity(seller));
     }
-    
+
+    @GetMapping("/{id}/with-products")
+    public ResponseEntity<SellerResponseDto.SellerWithProductsDto> getSellerWithProducts(@PathVariable Long id) {
+        Seller seller = sellerService.getSellerById(id);
+        return ResponseEntity.ok(SellerResponseDto.SellerWithProductsDto.fromEntityWithProducts(seller));
+    }
+
     @PostMapping
-    public ResponseEntity<Seller> createSeller(@Valid @RequestBody SellerDto sellerDto) {
+    public ResponseEntity<SellerResponseDto> createSeller(@Valid @RequestBody SellerDto sellerDto) {
         Seller seller = new Seller();
         seller.setFirstName(sellerDto.getFirstName());
         seller.setLastName(sellerDto.getLastName());
@@ -41,13 +49,14 @@ public class SellerController {
         seller.setContactPhone(sellerDto.getContactPhone());
         seller.setBusinessAddress(sellerDto.getBusinessAddress());
         seller.setTaxId(sellerDto.getTaxId());
-        
+
         Seller createdSeller = sellerService.createSeller(seller);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdSeller);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(SellerResponseDto.fromEntity(createdSeller));
     }
-    
+
     @PutMapping("/{id}")
-    public ResponseEntity<Seller> updateSeller(@PathVariable Long id, @Valid @RequestBody SellerDto sellerDto) {
+    public ResponseEntity<SellerResponseDto> updateSeller(@PathVariable Long id, @Valid @RequestBody SellerDto sellerDto) {
         Seller seller = new Seller();
         seller.setFirstName(sellerDto.getFirstName());
         seller.setLastName(sellerDto.getLastName());
@@ -56,14 +65,16 @@ public class SellerController {
         seller.setContactPhone(sellerDto.getContactPhone());
         seller.setBusinessAddress(sellerDto.getBusinessAddress());
         seller.setTaxId(sellerDto.getTaxId());
-        
+
         Seller updatedSeller = sellerService.updateSeller(id, seller);
-        return ResponseEntity.ok(updatedSeller);
+        return ResponseEntity.ok(SellerResponseDto.fromEntity(updatedSeller));
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSeller(@PathVariable Long id) {
         sellerService.deleteSeller(id);
         return ResponseEntity.noContent().build();
     }
 }
+
+

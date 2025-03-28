@@ -1,6 +1,7 @@
 package com.inventory.controller;
 
 import com.inventory.controller.dto.BuyerDto;
+import com.inventory.controller.dto.response.BuyerResponseDto;
 import com.inventory.model.entity.Buyer;
 import com.inventory.service.BuyerService;
 import jakarta.validation.Valid;
@@ -15,22 +16,29 @@ import java.util.List;
 @RequestMapping("/api/buyers")
 @RequiredArgsConstructor
 public class BuyerController {
-    
+
     private final BuyerService buyerService;
-    
+
     @GetMapping
-    public List<Buyer> getAllBuyers() {
-        return buyerService.getAllBuyers();
+    public List<BuyerResponseDto> getAllBuyers() {
+        List<Buyer> buyers = buyerService.getAllBuyers();
+        return BuyerResponseDto.fromEntities(buyers);
     }
-    
+
     @GetMapping("/{id}")
-    public ResponseEntity<Buyer> getBuyerById(@PathVariable Long id) {
+    public ResponseEntity<BuyerResponseDto> getBuyerById(@PathVariable Long id) {
         Buyer buyer = buyerService.getBuyerById(id);
-        return ResponseEntity.ok(buyer);
+        return ResponseEntity.ok(BuyerResponseDto.fromEntity(buyer));
     }
-    
+
+    @GetMapping("/{id}/with-orders")
+    public ResponseEntity<BuyerResponseDto.BuyerWithOrdersDto> getBuyerWithOrders(@PathVariable Long id) {
+        Buyer buyer = buyerService.getBuyerById(id);
+        return ResponseEntity.ok(BuyerResponseDto.BuyerWithOrdersDto.fromEntityWithOrders(buyer));
+    }
+
     @PostMapping
-    public ResponseEntity<Buyer> createBuyer(@Valid @RequestBody BuyerDto buyerDto) {
+    public ResponseEntity<BuyerResponseDto> createBuyer(@Valid @RequestBody BuyerDto buyerDto) {
         Buyer buyer = new Buyer();
         buyer.setFirstName(buyerDto.getFirstName());
         buyer.setLastName(buyerDto.getLastName());
@@ -39,24 +47,25 @@ public class BuyerController {
         buyer.setShippingAddress(buyerDto.getShippingAddress());
         buyer.setBillingAddress(buyerDto.getBillingAddress());
         buyer.setPhoneNumber(buyerDto.getPhoneNumber());
-        
+
         Buyer createdBuyer = buyerService.createBuyer(buyer);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdBuyer);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(BuyerResponseDto.fromEntity(createdBuyer));
     }
-    
+
     @PutMapping("/{id}")
-    public ResponseEntity<Buyer> updateBuyer(@PathVariable Long id, @Valid @RequestBody BuyerDto buyerDto) {
+    public ResponseEntity<BuyerResponseDto> updateBuyer(@PathVariable Long id, @Valid @RequestBody BuyerDto buyerDto) {
         Buyer buyer = new Buyer();
         buyer.setFirstName(buyerDto.getFirstName());
         buyer.setLastName(buyerDto.getLastName());
         buyer.setShippingAddress(buyerDto.getShippingAddress());
         buyer.setBillingAddress(buyerDto.getBillingAddress());
         buyer.setPhoneNumber(buyerDto.getPhoneNumber());
-        
+
         Buyer updatedBuyer = buyerService.updateBuyer(id, buyer);
-        return ResponseEntity.ok(updatedBuyer);
+        return ResponseEntity.ok(BuyerResponseDto.fromEntity(updatedBuyer));
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBuyer(@PathVariable Long id) {
         buyerService.deleteBuyer(id);
