@@ -1,5 +1,6 @@
 package com.inventory.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"order.items", "product.orderItems"})
 public class OrderItem extends BaseEntity {
 
     @Id
