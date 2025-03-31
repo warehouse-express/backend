@@ -35,20 +35,20 @@ INSERT INTO sellers (user_id, company_name, company_description, contact_phone, 
 VALUES (2002, 'Home Essentials Ltd.', 'Quality home products for everyday use', '+5566778899', '101 Commerce St, City, Country', 'TX87654321');
 
 -- Insert Products
-INSERT INTO products (id, name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
-VALUES (1, 'Laptop Pro X', 'High-performance laptop with 16GB RAM and 512GB SSD', 1299.99, 15, 'laptop.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO products (name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
+VALUES ('Laptop Pro X', 'High-performance laptop with 16GB RAM and 512GB SSD', 1299.99, 15, 'laptop.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO products (id, name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
-VALUES (2, 'Smartphone Z20', 'Latest smartphone with 128GB storage and triple camera', 899.99, 25, 'smartphone.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO products (name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
+VALUES ('Smartphone Z20', 'Latest smartphone with 128GB storage and triple camera', 899.99, 25, 'smartphone.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO products (id, name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
-VALUES (3, 'Coffee Maker Deluxe', 'Programmable coffee maker with thermal carafe', 89.99, 30, 'coffee-maker.jpg', 'Home Appliances', 2002, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO products (name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
+VALUES ('Coffee Maker Deluxe', 'Programmable coffee maker with thermal carafe', 89.99, 30, 'coffee-maker.jpg', 'Home Appliances', 2002, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO products (id, name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
-VALUES (4, 'Kitchen Mixer', 'Professional grade stand mixer with multiple attachments', 199.99, 12, 'mixer.jpg', 'Home Appliances', 2002, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO products (name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
+VALUES ('Kitchen Mixer', 'Professional grade stand mixer with multiple attachments', 199.99, 12, 'mixer.jpg', 'Home Appliances', 2002, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO products (id, name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
-VALUES (5, 'Wireless Headphones', 'Noise-cancelling bluetooth headphones with 30-hour battery life', 149.99, 20, 'headphones.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO products (name, description, price, quantity, image_url, category, seller_id, status, created_at, updated_at)
+VALUES ('Wireless Headphones', 'Noise-cancelling bluetooth headphones with 30-hour battery life', 149.99, 20, 'headphones.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
 -- Insert Orders
 INSERT INTO orders (id, order_number, buyer_id, total_amount, status, placed_at, shipping_address, created_at, updated_at)

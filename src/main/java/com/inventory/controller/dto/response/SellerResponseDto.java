@@ -20,6 +20,7 @@ public class SellerResponseDto  {
     private String companyDescription;
     private String contactPhone;
     private String businessAddress;
+    private String taxId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -36,6 +37,7 @@ public class SellerResponseDto  {
         dto.setCompanyDescription(seller.getCompanyDescription());
         dto.setContactPhone(seller.getContactPhone());
         dto.setBusinessAddress(seller.getBusinessAddress());
+        dto.setTaxId(seller.getTaxId());
         dto.setCreatedAt(seller.getCreatedAt());
         dto.setUpdatedAt(seller.getUpdatedAt());
 
@@ -71,6 +73,7 @@ public class SellerResponseDto  {
             dto.setCompanyDescription(seller.getCompanyDescription());
             dto.setContactPhone(seller.getContactPhone());
             dto.setBusinessAddress(seller.getBusinessAddress());
+            dto.setTaxId(seller.getTaxId());
             dto.setCreatedAt(seller.getCreatedAt());
             dto.setUpdatedAt(seller.getUpdatedAt());
 
