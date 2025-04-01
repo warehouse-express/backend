@@ -10,6 +10,7 @@ import com.inventory.model.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.math.BigDecimal;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -50,7 +51,7 @@ public class OrderService {
         order.setShippingAddress(shippingAddress);
         order.setStatus(Order.Status.PENDING);
         order.setPlacedAt(LocalDateTime.now());
-        
+        order.setTotalAmount(BigDecimal.ZERO); // Set starting total to $0
         // Save the order first to get an ID
         Order savedOrder = orderRepository.save(order);
         

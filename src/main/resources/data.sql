@@ -52,24 +52,24 @@ INSERT INTO products (name, description, price, quantity, image_url, category, s
 VALUES ('Wireless Headphones', 'Noise-cancelling bluetooth headphones with 30-hour battery life', 149.99, 20, 'headphones.jpg', 'Electronics', 2001, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
 -- Insert Orders
-INSERT INTO orders (id, order_number, buyer_id, total_amount, status, placed_at, shipping_address, created_at, updated_at)
-VALUES (1, 'ORD10001', 1001, 1299.99, 'DELIVERED', '2023-01-15 10:30:00', '123 Main St, City, Country', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
+VALUES ('64EC64D40D', 1001, 1299.99, 'DELIVERED', '2023-01-15 10:30:00', '123 Main St, City, Country', 'B3212349', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO orders (id, order_number, buyer_id, total_amount, status, placed_at, shipping_address, created_at, updated_at)
-VALUES (2, 'ORD10002', 1002, 289.98, 'SHIPPED', '2023-02-20 14:45:00', '456 Oak St, City, Country', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
+VALUES ('7291B37160', 1002, 289.98, 'SHIPPED', '2023-02-20 14:45:00', '456 Oak St, City, Country', 'L32592398', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO orders (id, order_number, buyer_id, total_amount, status, placed_at, shipping_address, created_at, updated_at)
-VALUES (3, 'ORD10003', 1001, 899.99, 'PENDING', '2023-03-05 09:15:00', '123 Main St, City, Country', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
+VALUES ('6D13CD88AD', 1001, 899.99, 'PENDING', '2023-03-05 09:15:00', '123 Main St, City, Country', 'N23120937', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
 -- Insert Order Items
-INSERT INTO order_items (id, order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
-VALUES (1, 1, 1, 1, 1299.99, 'Laptop Pro X', 'High-performance laptop with 16GB RAM and 512GB SSD', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
+VALUES (1, 1, 1, 1299.99, 'Laptop Pro X', 'High-performance laptop with 16GB RAM and 512GB SSD', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO order_items (id, order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
-VALUES (2, 2, 3, 2, 89.99, 'Coffee Maker Deluxe', 'Programmable coffee maker with thermal carafe', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
+VALUES (2, 3, 2, 89.99, 'Coffee Maker Deluxe', 'Programmable coffee maker with thermal carafe', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO order_items (id, order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
-VALUES (3, 2, 4, 0.5, 199.99, 'Kitchen Mixer', 'Professional grade stand mixer with multiple attachments', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
+VALUES (2, 4, 0.5, 199.99, 'Kitchen Mixer', 'Professional grade stand mixer with multiple attachments', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO order_items (id, order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
-VALUES (4, 3, 2, 1, 899.99, 'Smartphone Z20', 'Latest smartphone with 128GB storage and triple camera', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
+VALUES (3, 2, 1, 899.99, 'Smartphone Z20', 'Latest smartphone with 128GB storage and triple camera', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
