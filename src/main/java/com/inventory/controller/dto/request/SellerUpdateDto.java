@@ -13,7 +13,7 @@ public class SellerUpdateDto {
     @NotBlank
     private String lastName;
 
-    @NotBlank
+    //no @NotBlank - optional for updates
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
             message = "Invalid email format"
     )
