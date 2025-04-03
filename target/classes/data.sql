@@ -1,10 +1,5 @@
--- Clear existing data (optional, useful during development)
--- DELETE FROM order_items;
--- DELETE FROM orders;
--- DELETE FROM products;
--- DELETE FROM sellers;
--- DELETE FROM buyers;
--- DELETE FROM users;
+
+-- Generated Synthetic Data
 
 -- Insert Users (Buyers)
 INSERT INTO users (id, first_name, last_name, email, password, role, active, created_at, updated_at)
@@ -157,7 +152,7 @@ VALUES ('Specialty Coffee Beans', 'Single-origin coffee beans, freshly roasted',
 INSERT INTO products (name, description, price, quantity, category, seller_id, status, created_at, updated_at)
 VALUES ('Artisanal Cheese Selection', 'Premium cheese assortment from local farms', 44.99, 20, 'Food', 2005, 'ACTIVE', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
--- Insert Orders (original ones)
+-- Insert Orders
 INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
 VALUES ('64EC64D40D', 1001, 1299.99, 'DELIVERED', '2023-01-15 10:30:00', '123 Main St, City, Country', 'B3212349', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
@@ -167,7 +162,6 @@ VALUES ('7291B37160', 1002, 289.98, 'SHIPPED', '2023-02-20 14:45:00', '456 Oak S
 INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
 VALUES ('6D13CD88AD', 1001, 899.99, 'PENDING', '2023-03-05 09:15:00', '123 Main St, City, Country', 'N23120937', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
--- Additional Orders for new buyers
 INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
 VALUES ('AB12CD34EF', 1003, 1649.98, 'PROCESSING', '2023-04-10 11:20:00', '789 Pine St, New York, USA', NULL, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
@@ -186,7 +180,7 @@ VALUES ('YZ78AB90CD', 1003, 349.99, 'PROCESSING', '2023-04-28 14:25:00', '789 Pi
 INSERT INTO orders (order_number, buyer_id, total_amount, status, placed_at, shipping_address, tracking_number, created_at, updated_at)
 VALUES ('EF12GH34IJ', 1005, 249.98, 'CANCELLED', '2023-04-30 09:45:00', '654 Maple Rd, Toronto, Canada', NULL, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
--- Insert Order Items (original ones)
+-- Insert Order Items
 INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
 VALUES (1, 1, 1, 1299.99, 'Laptop Pro X', 'High-performance laptop with 16GB RAM and 512GB SSD', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
@@ -199,7 +193,6 @@ VALUES (2, 4, 0.5, 199.99, 'Kitchen Mixer', 'Professional grade stand mixer with
 INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
 VALUES (3, 2, 1, 899.99, 'Smartphone Z20', 'Latest smartphone with 128GB storage and triple camera', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
--- Additional Order Items for new orders
 INSERT INTO order_items (order_id, product_id, quantity, price, product_name, product_description, created_at, updated_at)
 VALUES (4, 4, 1, 1499.99, 'Ultra HD Smart TV', '65-inch 4K display with smart connectivity', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
