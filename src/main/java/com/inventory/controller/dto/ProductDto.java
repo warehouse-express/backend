@@ -21,8 +21,6 @@ public class ProductDto {
     @Min(0)
     private Integer quantity;
     
-    private String imageUrl;
-    
     private String category;
     
     private Long sellerId;
