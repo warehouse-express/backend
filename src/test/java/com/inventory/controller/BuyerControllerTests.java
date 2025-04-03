@@ -25,9 +25,6 @@ public class BuyerControllerTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private BuyerRepository buyerRepository;
-
     @Test
     void testCreateGetUpdateDeleteBuyer() throws Exception {
         // 1. CREATE - Test creating a buyer

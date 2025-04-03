@@ -32,13 +32,9 @@ public class ProductControllerTests {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
     private SellerRepository sellerRepository;
 
     private Seller testSeller;
-    private final Long TEST_PRODUCT_ID = 9999L;
 
     @BeforeEach
     void setUp() {

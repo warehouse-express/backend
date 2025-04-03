@@ -29,15 +29,6 @@ public class OrderControllerTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private BuyerRepository buyerRepository;
-
-    @Autowired
-    private ProductRepository productRepository;
-
     @Test
     void testCreateGetUpdateOrder() throws Exception {
         //We use existing buyer and product IDs from data.sql
