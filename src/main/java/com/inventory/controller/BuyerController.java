@@ -1,6 +1,7 @@
 package com.inventory.controller;
 
-import com.inventory.controller.dto.BuyerDto;
+import com.inventory.controller.dto.BuyerCreateDto;
+import com.inventory.controller.dto.BuyerUpdateDto;
 import com.inventory.controller.dto.response.BuyerResponseDto;
 import com.inventory.model.entity.Buyer;
 import com.inventory.service.BuyerService;
@@ -38,7 +39,7 @@ public class BuyerController {
     }
 
     @PostMapping
-    public ResponseEntity<BuyerResponseDto> createBuyer(@Valid @RequestBody BuyerDto buyerDto) {
+    public ResponseEntity<BuyerResponseDto> createBuyer(@Valid @RequestBody BuyerCreateDto buyerDto) {
         Buyer buyer = new Buyer();
         buyer.setFirstName(buyerDto.getFirstName());
         buyer.setLastName(buyerDto.getLastName());
@@ -54,7 +55,7 @@ public class BuyerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BuyerResponseDto> updateBuyer(@PathVariable Long id, @Valid @RequestBody BuyerDto buyerDto) {
+    public ResponseEntity<BuyerResponseDto> updateBuyer(@PathVariable Long id, @Valid @RequestBody BuyerUpdateDto buyerDto) {
         Buyer buyer = new Buyer();
         buyer.setFirstName(buyerDto.getFirstName());
         buyer.setLastName(buyerDto.getLastName());
