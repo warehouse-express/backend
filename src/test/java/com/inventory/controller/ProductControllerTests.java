@@ -61,7 +61,7 @@ public class ProductControllerTests {
 
     @Test
     void testCreateGetUpdateDeleteProduct() throws Exception {
-        // 1. CREATE - Test creating a product
+        //1. CREATE - Test creating a product
         ObjectNode productJson = objectMapper.createObjectNode();
         productJson.put("name", "Test Product");
         productJson.put("description", "Test Description");
@@ -80,7 +80,7 @@ public class ProductControllerTests {
         ObjectNode createdProductJson = objectMapper.readValue(response.getContentAsString(), ObjectNode.class);
         Long createdProductId = createdProductJson.get("id").asLong();
 
-        // 2. READ - Test retrieving the product
+        //2. READ - Test retrieving the product
         response = mockMvc.perform(
                         get("/api/products/" + createdProductId))
                 .andExpect(status().isOk())
@@ -90,7 +90,7 @@ public class ProductControllerTests {
         assertEquals("Test Product", fetchedProductJson.get("name").asText());
         assertEquals(99.99, fetchedProductJson.get("price").asDouble());
 
-        // 3. UPDATE - Test updating the product
+        //3. UPDATE - Test updating the product
         ObjectNode updateJson = objectMapper.createObjectNode();
         updateJson.put("name", "Updated Product");
         updateJson.put("price", 129.99);
@@ -102,7 +102,7 @@ public class ProductControllerTests {
                                 .content(updateJson.toString()))
                 .andExpect(status().isOk());
 
-        // Verify update
+        //Verify update
         response = mockMvc.perform(
                         get("/api/products/" + createdProductId))
                 .andExpect(status().isOk())
@@ -113,12 +113,12 @@ public class ProductControllerTests {
         assertEquals(129.99, updatedProductJson.get("price").asDouble());
         assertEquals(25, updatedProductJson.get("quantity").asInt());
 
-        // 4. DELETE - Test deleting the product
+        //4. DELETE - Test deleting the product
         mockMvc.perform(
                         delete("/api/products/" + createdProductId))
                 .andExpect(status().isNoContent());
 
-        // Verify product was deleted
+        //Verify product was deleted
         mockMvc.perform(
                         get("/api/products/" + createdProductId))
                 .andExpect(status().isNotFound());
