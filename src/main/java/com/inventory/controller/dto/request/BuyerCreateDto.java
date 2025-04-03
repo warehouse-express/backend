@@ -13,8 +13,6 @@ public class BuyerCreateDto {
     @NotBlank
     private String lastName;
 
-
-
     @NotBlank
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
             message = "Invalid email format"
