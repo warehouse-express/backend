@@ -47,9 +47,6 @@ public class Product extends BaseEntity {
     private Integer quantity;
 
     @Column
-    private String imageUrl;
-
-    @Column
     private String category;
 
     /*

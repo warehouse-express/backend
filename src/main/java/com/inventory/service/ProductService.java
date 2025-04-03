@@ -73,10 +73,7 @@ public class ProductService {
         if (productDetails.getCategory() != null) {
             existingProduct.setCategory(productDetails.getCategory());
         }
-        
-        if (productDetails.getImageUrl() != null) {
-            existingProduct.setImageUrl(productDetails.getImageUrl());
-        }
+
         
         // Handle quantity separately to update status
         if (productDetails.getQuantity() != null) {
